@@ -2,55 +2,178 @@
 <html lang="en">
 
 	<head>
-		<meta charset="UTF-8" />
+		<meta charset="UTF-8"/>
 		<title>Ithaca Web People</title>
-		<link rel="stylesheet" href="index.scss" />
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<link rel="stylesheet" href="/index.scss"/>
+		<link rel="icon" href="/icons/IWP-logo.png"/>
 		<script type="module" src="index.ts"></script>
 	</head>
 
 	<body>
-		<h1>Ithaca Web People</h1>
-		<p>Coming soon...for now, check out our <a href="https://meetup.com/ithaca-web-people">Meetup group</a></p>
+		<header>
+			<section class="title">
+				<img src="/icons/IWP-logo.png" alt="IWP logo">
+				<h1>Ithaca Web People</h1>
+			</section>
+			<nav>
+				<ul>
+					<li>
+						<a href="#description">Description</a>
+					</li>
+					<li>
+						<a href="#events">Events</a>
+					</li>
+					<li>
+						<a href="#links">Links</a>
+					</li>
+					<li>
+						<a href="#sponsors">Sponsors</a>
+					</li>
+					<li>
+						<a href="#contact">Contact</a>
+					</li>
+				</ul>
+			</nav>
+			<div class="banner" aria-description="An IWP member giving a presentation at one of our meetups"></div>
+		</header>
 
-		<h2>(Overall Design Work)</h2>
-		<p>Remove this section once index.scss is filled out a little more to make this page pretty</p>
-		<p>If Tyler's here, ask if we can use one of his fonts for some extra local flair!</p>
+		<main>
+			<section id="description">
+				<h2>Description</h2>
+				<p>
+					<a href="https://meetup.com/ithaca-web-people">Ithaca Web People</a>
+					is a group of local software developers, web designers, and tech professionals in the Ithaca, NY area.
+				</p>
+				<p>
+					We typically meet the first non-holiday of each month at
+					<a href="https://revithaca.com">Rev: Ithaca Startup Works</a>
+				</p>
+				<p>
+					Whether you're seeking professional networking opportunities in Upstate New York,
+					or are just looking for some friendly socializing with fellow nerds in the Finger Lakes;
+					IWP is a safe, inclusive, and welcoming place for whoever you are
+					and wherever you're at in your tech journey.
+				</p>
+			</section>
 
-		<h2>Description</h2>
-		<p>Add a SEO description of the group, our Meetup page is probably a good place to start</p>
+			<section id="events">
+				<h2>Upcoming Events</h2>
 
-		<h2>Upcoming Events</h2>
-		<p>Use the GitHub API to show upcoming events from the EventPlanning project board</p>
+				<p>
+					All of our meetups that have an agenda set are listed below.
+					If you're not seeing a date you'd expect to see, it might not have a topic yet!
+				</p>
 
-		<section id="upcoming-events">
-			
-		</section>
+				<div id="upcoming-events">
+					<div class="loading"><div></div></div>
+				</div>
+			</section>
 
-		<h2>Links</h2>
-		<p>Make large icon buttons for each, linked to their respective sites</p>
-		<ul>
-			<li>Meetup group</li>
-			<li>LinkedIn group</li>
-			<li>Slack team</li>
-			<li>GitHub org</li>
-		</ul>
-		<p>Coordinate with sponsor devs below to ensure consistent markup and styling</p>
+			<section id="links">
+				<h2>Links</h2>
+				<p>
+					You can find IWP all over the web!
+				</p>
+				<ul class="icon-buttons">
+					<li>
+						<a href="https://meetup.com/ithaca-web-people">
+							<img src="/icons/meetup.svg" alt="Meetup icon"/>
+							<b>Meetup Group</b>
+						</a>
+					</li>
+					<li>
+						<a href="https://join.slack.com/t/ithacawebpeople/shared_invite/enQtNDM1OTIzNDA2MzkwLTNjOTk2ZGFlMGE4YTg3MTc1MjM4MmI2ZWZjMzUzZTAxMDRiYTM4OTY5ZjE2YTZlMDkyZTlmZDY0NTFjZjdlNmY">
+							<img src="/icons/slack.svg" alt="Slack icon"/>
+							<b>Slack Team</b>
+						</a>
+					</li>
+					<li>
+						<a href="https://github.com/orgs/IthacaWebPeople">
+							<img src="/icons/github.svg" alt="GitHub icon"/>
+							<b>GitHub Org</b>
+						</a>
+					</li>
+					<li>
+						<a href="https://www.linkedin.com/groups/14549384/">
+							<img src="/icons/linkedin.svg" alt="LinkedIn icon"/>
+							<b>LinkedIn Group</b>
+						</a>
+					</li>
+				</ul>
+			</section>
 
-		<h2>Sponsors</h2>
-		<p>Make large icon buttons for each, linked to their respective sites</p>
-		<ul>
-			<li>Rev: Ithaca Startup Works, venue sponsor</li>
-			<li>Michael Miles / Semalina LLC, food sponsor</li>
-			<li>Singlebrook Technologies, Meetup.com sponsor</li>
-			<li>Ben Darfler, Meetup.com sponsor</li>
-			<li>ecoAPM, tech/supplies sponsor</li>
-		</ul>
-		<p>Coordinate with links devs above to ensure consistent markup and styling</p>
+			<section id="sponsors">
+				<h2>Sponsors</h2>
+				<p>
+					An extra special "thank you" to all our sponsors who help make our group completely free for all members!
+				</p>
+				<ul class="icon-buttons">
+					<li>
+						<a href="https://revithaca.com">
+							<img src="/icons/rev.png" alt="Rev logo"/>
+							<span>
+								<b>Rev: Ithaca Startup Works</b>
+								Venue
+							</span>
+						</a>
+					</li>
+					<li>
+						<a href="https://www.linkedin.com/in/michaelgmiles/">
+							<img src="https://secure.meetupstatic.com/photos/member/6/c/e/4/highres_293547876.jpeg" alt="Michael Miles headshot"/>
+							<span>
+								<b>Michael Miles, Semalina LLC</b>
+								Food
+							</span>
+						</a>
+					</li>
+					<li>
+						<a href="https://singlebrook.com">
+							<img src="/icons/singlebrook.svg" alt="Singlebrook logo"/>
+							<span>
+								<b>Singlebrook Technologies</b>
+								Meetup
+							</span>
+						</a>
+					</li>
+					<li>
+						<a href="https://bdarfler.com">
+							<img src="https://64.media.tumblr.com/476a3888ef4fc06833df1b3b2349634b/4fc944b81643dc1e-0d/s960x960u_c1/b147c95766c4b9e37b140641022e599b3ccc9e9a.jpg" alt="Ben Darfler headshot">
+							<span>
+								<b>Ben Darfler</b>
+								Meetup
+							</span>
+						</a>
+					</li>
+					<li>
+						<a href="https://ecoAPM.com">
+							<img src="/icons/ecoAPM.png" alt="ecoAPM logo"/>
+							<span>
+								<b>ecoAPM</b>
+								Tech, Supplies
+							</span>
+						</a>
+					</li>
+				</ul>
+			</section>
 
-		<h2>Contact</h2>
-		<p>Something about our Slack team being the best place, but you can also probably email [Info (at) Ithaca Web
-			People (dot) org] (not sure, haven't tested it from an external address yet)</p>
+			<section id="contact">
+				<h2>Contact</h2>
+				<p>
+					The best way to connect with our members and organizers is via Meetup and Slack!
+					You can find the links to those in the "Links" section above.
+				</p>
 
+				<p>
+					If you would like to get in touch with our primary organizer via email,
+					you can do so at [Info (at) Ithaca Web People (dot) org]
+				</p>
+			</section>
+		</main>
+
+		<footer>
+			&copy; 2011-2025 Ithaca Web People
+		</footer>
 	</body>
 
 </html>

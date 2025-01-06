@@ -1,13 +1,178 @@
+@use 'node_modules/bootstrap/scss/bootstrap' as *;
+
 :root {
 	font-size: 16px;
 }
 
-body {
-	background: black;
-	color: lime;
-	font-family: monospace;
+html, body {
+	margin: 0;
+	padding: 0;
+	top: 0;
 }
 
-a {
-	color: white;
+header {
+	@extend .bg-light;
+
+	.title {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 1rem;
+		padding: 1rem;
+	}
+
+	nav {
+		ul {
+			list-style: none;
+			display: flex;
+			flex-wrap: wrap;
+			padding: 0;
+			gap: 1rem;
+			justify-content: center;
+		}
+	}
+
+	div.banner {
+		width: 100%;
+		aspect-ratio: 3;
+		background-image: url(/images/header.webp);
+		background-size: cover;
+		background-position: center;
+	}
+}
+
+main {
+	@extend .container;
+
+	> section {
+		margin: 2.5rem;
+	}
+
+	#upcoming-events {
+		.loading {
+			@extend .m-auto;
+			position: relative;
+			width: 4rem;
+			height: 4rem;
+			color: #666;
+
+			div {
+				position: absolute;
+				border: 0.25rem solid currentColor;
+				opacity: 1;
+				border-radius: 50%;
+				animation: loading 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+			}
+
+			div:nth-child(2) {
+				animation-delay: -0.5s;
+			}
+
+			@keyframes loading {
+				0% {
+					top: 1.75rem;
+					left: 1.75rem;
+					width: 0.5rem;
+					height: 0.5rem;
+					opacity: 0;
+				}
+				4% {
+					top: 1.75rem;
+					left: 1.75rem;
+					width: 0.5rem;
+					height: 0.5rem;
+					opacity: 0;
+				}
+				5% {
+					top: 1.75rem;
+					left: 1.75rem;
+					width: 0.5rem;
+					height: 0.5rem;
+					opacity: 1;
+				}
+				100% {
+					top: 0;
+					left: 0;
+					width: 4rem;
+					height: 4rem;
+					opacity: 0;
+				}
+			}
+		}
+
+		article {
+			@extend .card;
+			@extend .bg-light;
+			@extend .my-3;
+
+			box-shadow: $box-shadow;
+
+			section {
+				@extend .card-body;
+				@extend .p-sm-4;
+				@extend .p-3;
+
+				h3 {
+					@extend .card-title;
+				}
+
+				p {
+					@extend .card-text;
+				}
+			}
+		}
+
+		.warning {
+			@extend .alert;
+			@extend .alert-warning;
+		}
+	}
+
+	.icon-buttons {
+		@extend .row;
+
+		list-style: none;
+		padding: 0;
+		display: flex;
+		flex-wrap: wrap;
+		row-gap: 2rem;
+
+		li {
+			@extend .col-xl-2;
+			@extend .col-lg-3;
+			@extend .col-md-4;
+			@extend .col-6;
+
+			a {
+				@extend .btn;
+				@extend .btn-light;
+
+				display: flex;
+				flex-direction: column;
+				height: 100%;
+				padding: 1rem 2rem;
+				border: 1px solid $card-border-color;
+				border-radius: 1rem;
+				box-shadow: $box-shadow-sm;
+				justify-content: space-between;
+				align-items: center;
+				text-decoration: none;
+
+				img {
+					width: 100%;
+				}
+
+				b {
+					display: block;
+					font-weight: 600;
+				}
+			}
+		}
+	}
+}
+
+footer {
+	@extend .bg-light;
+	padding: 2rem;
+	text-align: center;
 }
