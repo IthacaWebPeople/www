@@ -1,4 +1,5 @@
 import dompurify from 'dompurify';
+import { format } from 'date-fns';
 
 const newToken = import.meta.env.VITE_GITHUB_API_TOKEN;
 const data = `query {
@@ -28,13 +29,19 @@ const data = `query {
 		}
 	}
 }`;
+
 const authHeaders = { 'Authorization': 'Bearer ' + newToken };
 const body = JSON.stringify({ query: data });
 
 const renderEvent = (event) => {
-	return `<h3>${dompurify.sanitize(event.title)}</h3>
-			<h4>${dompurify.sanitize(event.date)}</h4>
-			${dompurify.sanitize(event.description)}`;
+	const date = new Date(`${event.date}T18:00:00Z`);
+	return `<article>
+				<section>
+					<h3>${dompurify.sanitize(event.title || 'Future Meetup')}</h3>
+					<h4>${dompurify.sanitize(format(date, 'EEEE, MMMM d, yyyy'))}</h4>
+					<p>${dompurify.sanitize(event.description)}</p>
+				</section>
+			</article>`;
 }
 
 const getEvents = (json) => json.data.node.items.nodes.map(i => {
@@ -48,11 +55,14 @@ const getEvents = (json) => json.data.node.items.nodes.map(i => {
 	};
 }).filter(i => i.status === 'Planned' && i.date);
 
-window.onload = async () => {
-	const response = await fetch('https://api.github.com/graphql', { method: 'POST', headers: authHeaders, body: body });
+async function loadEvents() {
+	const response = await fetch('https://api.github.com/graphql', {method: 'POST', headers: authHeaders, body: body});
 	const json = await response.json();
 	const events = getEvents(json);
 	const rootElement = document.getElementById('upcoming-events');
-	rootElement.innerHTML = `${events.map(renderEvent).join('')}`; 
-	console.log(json);
-};
+	rootElement.innerHTML = events && events.length
+		? `${events.map(renderEvent).join('')}`
+		: '<div class="warning">There are currently no upcoming events :(</div>';
+}
+
+window.onload = loadEvents;
