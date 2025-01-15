@@ -37,9 +37,10 @@ const renderEvent = (event) => {
 	const date = new Date(`${event.date}T18:00:00Z`);
 	return `<article>
 				<section>
-					<h3>${dompurify.sanitize(event.title || 'Future Meetup')}</h3>
+					<h3>${dompurify.sanitize(event.title ?? 'Future Meetup')}</h3>
 					<h4>${dompurify.sanitize(format(date, 'EEEE, MMMM d, yyyy'))}</h4>
-					<p>${dompurify.sanitize(event.description)}</p>
+					<h5>6:00pm &ndash; 7:30pm</h5>
+					<p>${dompurify.sanitize(event.description ?? 'TBD')}</p>
 				</section>
 			</article>`;
 }
