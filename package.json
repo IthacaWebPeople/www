@@ -8,7 +8,7 @@
 	"devDependencies": {
 		"bootstrap": "5.3.3",
 		"date-fns": "4.1.0",
-		"dompurify": "3.2.0",
+		"dompurify": "3.2.4",
 		"sass": "1.80.6",
 		"typescript": "5.6.3",
 		"vite": "5.4.10"
