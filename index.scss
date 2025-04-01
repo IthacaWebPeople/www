@@ -140,10 +140,11 @@ main {
 		row-gap: 2rem;
 
 		li {
-			@extend .col-xl-2;
+			@extend .col-xxl-2;
 			@extend .col-lg-3;
 			@extend .col-md-4;
-			@extend .col-6;
+			@extend .col-sm-6;
+			@extend .col-12;
 
 			a {
 				@extend .btn;
