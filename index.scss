@@ -4,7 +4,8 @@
 	font-size: 16px;
 }
 
-html, body {
+html,
+body {
 	margin: 0;
 	padding: 0;
 	top: 0;
@@ -46,7 +47,7 @@ header {
 main {
 	@extend .container;
 
-	> section {
+	>section {
 		margin: 2.5rem;
 	}
 
@@ -78,6 +79,7 @@ main {
 					height: 0.5rem;
 					opacity: 0;
 				}
+
 				4% {
 					top: 1.75rem;
 					left: 1.75rem;
@@ -85,6 +87,7 @@ main {
 					height: 0.5rem;
 					opacity: 0;
 				}
+
 				5% {
 					top: 1.75rem;
 					left: 1.75rem;
@@ -92,6 +95,7 @@ main {
 					height: 0.5rem;
 					opacity: 1;
 				}
+
 				100% {
 					top: 0;
 					left: 0;
@@ -168,6 +172,29 @@ main {
 				b {
 					display: block;
 					font-weight: 600;
+				}
+			}
+		}
+
+		&.wide-buttons {
+			li {
+				@extend .col-xxl-4;
+				@extend .col-lg-6;
+				@extend .col-12;
+
+				a {
+					flex-direction: row;
+					padding: 1rem;
+					gap: 1rem;
+					text-align: left;
+
+					img {
+						flex: 1;
+					}
+
+					span {
+						flex: 2;
+					}
 				}
 			}
 		}
