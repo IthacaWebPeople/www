@@ -45,7 +45,7 @@ const renderEvent = (event) => {
 			</article>`;
 }
 
-const getEvents = (json) => json.data.node.items.nodes.map(i => {
+const getEvent = (i) => {
 	const fields = Object.assign({}, ...i.fieldValues.nodes);
 	return {
 		id: i.content.number,
@@ -54,7 +54,12 @@ const getEvents = (json) => json.data.node.items.nodes.map(i => {
 		status: fields.name,
 		date: fields.date
 	};
-}).filter(i => i.status === 'Planned' && i.date);
+}
+
+const getEvents = (json) => json.data.node.items.nodes
+	.map(getEvent)
+	.filter(i => i.status === 'Planned' && i.date)
+	.sort((a, b) => a.date.localeCompare(b.date));
 
 async function loadEvents() {
 	const response = await fetch('https://api.github.com/graphql', {method: 'POST', headers: authHeaders, body: body});
